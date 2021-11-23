@@ -8,7 +8,7 @@ const Row = (props) => {
         for (let i=0; i < cols; i++) {
             row.push(<Cell key={i} id={i}/>);
         }
-        console.log(row);
+        // console.log(row);
         return row;
     }
 
