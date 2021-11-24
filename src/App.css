@@ -26,13 +26,13 @@
 .maze_wrapper {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  flex-direction: column;
+  align-items: center;
   height: 40vh;
 }
 
 .row {
   display: flex;
-  flex-direction: column;
 }
 
 .input_wrapper {

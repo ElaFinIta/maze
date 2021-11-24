@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cell from './Cell';
+import Row from './Row';
 
 class Maze extends Component {
     state = {
@@ -7,38 +7,39 @@ class Maze extends Component {
         rows: 4
     }
 
-    // generate a random integer between min and max included
-    getRandominteger = (min, max) => {
-        return Math.floor(Math.random() * (max - min + 1) ) + min;
-    }
 
-
-    createEmptyMaze = () => {
-        const maze = [];
-        for (let i=0; i < this.state.rows; i++) {
-            const row = [];
-            for (let j=0; j < this.state.columns; j++) {
-                row.push(<Cell />);
+    createRandomMaze = (rowNumber) => {
+            const maze = [];
+            for (let i=0; i < rowNumber; i++) {
+                maze.push(<Row cols={this.state.columns} key={i} row={i} />);
             }
-            maze.push(row);
-        }
-        console.log(maze);
-        return maze;
-    }
+            console.log(maze);
+            return maze;
 
-    createRandomMaze = (rows, columns) => {
-        const maze = [];
-        for (let i=0; i < this.state.rows; i++) {
-            const row = [];
-            for (let j=0; j < this.state.columns; j++) {
-                row.push(this.getRndInteger(0,1));
-            }
-            maze.push(row);
-        }
+
+        // const maze = [];
+        // for (let i=0; i < this.state.rows; i++) {
+        //     const row = [];
+        //     // let <RowNew />
+        //     for (let j=0; j < this.state.columns; j++) {
+        //         row.push(<Cell className={`cell_${this.getRandomInteger(0,1)}`} key={(i,j)}/>);
+        //     }
+        //     maze.push(row);
+        // }
         // starting and ending points are always 1/free
-        maze[0][0] = 1;
-        maze[maze.length -1][maze.length -1] = 1;
-        console.log(maze);
+        // maze[0][0] = 1;
+        // maze[maze.length -1][maze.length -1] = 1;
+        // console.log(maze);
+
+
+        // const coordinates = [];
+        // for (let i=0; i < maze.length; i++) {
+        //     for (let j=0; j < this.state.columns; j++) {
+        //         console.log('cords:', i, j);
+        //         coordinates.push(`{i:${i}, j:${j}}`)
+        //     }
+        // }
+        // console.log(coordinates);
     }
 
     rowNumberHandler = (event) => {
@@ -56,7 +57,7 @@ class Maze extends Component {
     render() {
         return (
             <div className="maze_wrapper">
-                {this.createEmptyMaze()}
+                {this.createRandomMaze(this.state.rows)}
                 <div className="input_wrapper">
                     <label htmlFor="rows">Number of rows:</label>
                     <input type="number" name="rows" min="2" max="30" onChange={this.rowNumberHandler} />

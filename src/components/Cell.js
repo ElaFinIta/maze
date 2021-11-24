@@ -4,7 +4,7 @@ import './Cell.css';
 
 const Cell = (props) => {
     return (
-        <div className="cell">
+        <div className={props.className} >
         </div>
     );
 };
