@@ -8,30 +8,28 @@ class Maze extends Component {
     }
 
 
-    createRandomMaze = (rowNumber) => {
-            const maze = [];
-            for (let i=0; i < rowNumber; i++) {
-                maze.push(<Row cols={this.state.columns} key={i} row={i} />);
+    // generate 1 with 2/3 probs and 0 with 1/3 probs
+    getWeightedInteger = () => {
+        const probs = [1,1,0];
+        return probs[Math.floor(Math.random() * 3 )];
+    }
+    
+    binaryMaze = () => {
+        let binMaze = [];
+        for (let i=0; i < this.state.rows; i++) {
+            const row = [];
+            for (let j=0; j < this.state.columns; j++) {
+                row.push(this.getWeightedInteger(0,1));
             }
-            console.log(maze);
-            return maze;
+            binMaze.push(row);
+        } 
+        binMaze[0][0] = 1;
+        binMaze[binMaze.length -1][binMaze.length -1] = 1;
+        console.log(binMaze);
 
-
-        // const maze = [];
-        // for (let i=0; i < this.state.rows; i++) {
-        //     const row = [];
-        //     // let <RowNew />
-        //     for (let j=0; j < this.state.columns; j++) {
-        //         row.push(<Cell className={`cell_${this.getRandomInteger(0,1)}`} key={(i,j)}/>);
-        //     }
-        //     maze.push(row);
-        // }
-        // starting and ending points are always 1/free
-        // maze[0][0] = 1;
-        // maze[maze.length -1][maze.length -1] = 1;
-        // console.log(maze);
-
-
+        return binMaze;
+    }
+        
         // const coordinates = [];
         // for (let i=0; i < maze.length; i++) {
         //     for (let j=0; j < this.state.columns; j++) {
@@ -40,6 +38,15 @@ class Maze extends Component {
         //     }
         // }
         // console.log(coordinates);
+
+    createVisualMaze = (binaryMaze) => {
+        const visualMaze = [];
+        let key = 0;
+        for (let r of binaryMaze) {
+            visualMaze.push(<Row cols={this.state.columns} rowBinaries={r} key={key}/>);
+            key += 1;
+        }
+        return visualMaze;
     }
 
     rowNumberHandler = (event) => {
@@ -57,7 +64,8 @@ class Maze extends Component {
     render() {
         return (
             <div className="maze_wrapper">
-                {this.createRandomMaze(this.state.rows)}
+                {/* {this.createRandomMaze(this.state.rows)} */}
+                {this.createVisualMaze(this.binaryMaze())}
                 <div className="input_wrapper">
                     <label htmlFor="rows">Number of rows:</label>
                     <input type="number" name="rows" min="2" max="30" onChange={this.rowNumberHandler} />
