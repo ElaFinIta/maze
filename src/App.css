@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Julius+Sans+One&display=swap');
+
+:root {
+  --special-font: 'Julius Sans One', sans-serif;
+  --normal-font: 'Crimson Pro', serif;
+}
+
+body {
+  font-family: var(--special-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -36,6 +50,7 @@
 }
 
 .input_wrapper {
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,13 +59,15 @@
 
 input {
   margin-bottom: 1rem;
-  padding: 0.4rem;
+  padding: 0.6rem;
   max-height: 3rem;
-  max-width: 3rem;
+  min-width: 4rem;
   border-radius: 3px;
+  font-size: var(--special-font);
 }
  label {
    margin: 1rem;
+   font-size: 2rem;
  }
 
 /****  Footer area *****/

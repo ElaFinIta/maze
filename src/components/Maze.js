@@ -3,8 +3,7 @@ import Row from './Row';
 
 class Maze extends Component {
     state = {
-        columns: 4,
-        rows: 4
+        size: 4
     }
 
 
@@ -16,9 +15,9 @@ class Maze extends Component {
     
     binaryMaze = () => {
         let binMaze = [];
-        for (let i=0; i < this.state.rows; i++) {
+        for (let i=0; i < this.state.size; i++) {
             const row = [];
-            for (let j=0; j < this.state.columns; j++) {
+            for (let j=0; j < this.state.size; j++) {
                 row.push(this.getWeightedInteger(0,1));
             }
             binMaze.push(row);
@@ -43,23 +42,18 @@ class Maze extends Component {
         const visualMaze = [];
         let key = 0;
         for (let r of binaryMaze) {
-            visualMaze.push(<Row cols={this.state.columns} rowBinaries={r} key={key}/>);
+            visualMaze.push(<Row cols={binaryMaze.length} rowBinaries={r} key={key}/>);
             key += 1;
         }
         return visualMaze;
     }
 
-    rowNumberHandler = (event) => {
+    sizeHandler = (event) => {
         this.setState({
-            rows: event.target.value,
+            size: event.target.value,
         });
     }
 
-    columNumberHandler = (event) => {
-        this.setState({
-            columns: event.target.value,
-        });
-    }
 
     render() {
         return (
@@ -67,10 +61,8 @@ class Maze extends Component {
                 {/* {this.createRandomMaze(this.state.rows)} */}
                 {this.createVisualMaze(this.binaryMaze())}
                 <div className="input_wrapper">
-                    <label htmlFor="rows">Number of rows:</label>
-                    <input type="number" name="rows" min="2" max="30" onChange={this.rowNumberHandler} />
-                    <label htmlFor="columns">Number of columns:</label>
-                    <input type="number" name="colums" min="2" max="30" onChange={this.columNumberHandler} />
+                    <label htmlFor="size">Size of the maze:</label>
+                    <input type="number" name="size" min="2" max="20" onChange={this.sizeHandler} />
                 </div>
             </div>
         );
