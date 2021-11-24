@@ -6,6 +6,11 @@ class Maze extends Component {
         size: 4
     }
 
+    sizeHandler = (event) => {
+        this.setState({
+            size: event.target.value,
+        });
+    }
 
     // generate 1 with 2/3 probs and 0 with 1/3 probs
     getWeightedInteger = () => {
@@ -13,6 +18,7 @@ class Maze extends Component {
         return probs[Math.floor(Math.random() * 3 )];
     }
     
+    // a matrix filled with 0 and 1. First cell top left and last bottom right are filled with 1.
     binaryMaze = () => {
         let binMaze = [];
         for (let i=0; i < this.state.size; i++) {
@@ -24,7 +30,7 @@ class Maze extends Component {
         } 
         binMaze[0][0] = 1;
         binMaze[binMaze.length -1][binMaze.length -1] = 1;
-        console.log(binMaze);
+        console.log("The maze", binMaze);
 
         return binMaze;
     }
@@ -48,12 +54,29 @@ class Maze extends Component {
         return visualMaze;
     }
 
-    sizeHandler = (event) => {
-        this.setState({
-            size: event.target.value,
-        });
+    // check if position of mouse is inside of maze indexes and is free i.e. 1 
+    isFree = (maze, x, y) => {
+        return (x >= 0 && x < maze.length &&
+             y >= 0 && y < maze.length &&
+             maze[x][y] === 1);
     }
 
+    goToCheese = () => {
+        // matrix initialized with zeros except start=1 and end=1
+        let path = [];
+        let mousePathMaze = [];
+        for (let i=0; i < this.state.size; i++) {
+            const row = [];
+            for (let j=0; j < this.state.size; j++) {
+                row.push(0);
+            }
+            mousePathMaze.push(row);
+        } 
+        mousePathMaze[0][0] = 1;
+        mousePathMaze[mousePathMaze.length -1][mousePathMaze.length -1] = 1;
+        console.log('tried path', mousePathMaze);
+        
+    }
 
     render() {
         return (
@@ -63,6 +86,7 @@ class Maze extends Component {
                 <div className="input_wrapper">
                     <label htmlFor="size">Size of the maze:</label>
                     <input type="number" name="size" min="2" max="20" onChange={this.sizeHandler} />
+                    {this.goToCheese()}
                 </div>
             </div>
         );
