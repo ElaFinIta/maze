@@ -5,6 +5,7 @@ class Maze extends Component {
     state = {
         size: 4
     }
+    maze = [];
 
     sizeHandler = (event) => {
         this.setState({
@@ -32,7 +33,11 @@ class Maze extends Component {
         binMaze[binMaze.length -1][binMaze.length -1] = 1;
         console.log("The maze", binMaze);
 
-        return binMaze;
+        // console.log("this is maze first", this.maze);
+        // I dont want to store into state because I dont want to render... I need to pass this twice: to goToCheese and to createVisualMaze. I need it to be the same maze.
+        this.maze = binMaze;
+        console.log("this is maze after", this.maze);
+        // return binMaze;
     }
         
         // const coordinates = [];
@@ -44,11 +49,11 @@ class Maze extends Component {
         // }
         // console.log(coordinates);
 
-    createVisualMaze = (binaryMaze) => {
+    createVisualMaze = () => {
         const visualMaze = [];
         let key = 0;
-        for (let r of binaryMaze) {
-            visualMaze.push(<Row cols={binaryMaze.length} rowBinaries={r} key={key}/>);
+        for (let r of this.maze) {
+            visualMaze.push(<Row cols={this.maze.length} rowBinaries={r} key={key}/>);
             key += 1;
         }
         return visualMaze;
@@ -72,6 +77,7 @@ class Maze extends Component {
             }
             mousePathMaze.push(row);
         } 
+        // start and end are free by de
         mousePathMaze[0][0] = 1;
         mousePathMaze[mousePathMaze.length -1][mousePathMaze.length -1] = 1;
         console.log('tried path', mousePathMaze);
