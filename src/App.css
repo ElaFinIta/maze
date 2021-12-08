@@ -18,26 +18,31 @@ body {
   min-height: 100vh;
 }
 
+.App-link {
+  color: yellow;
+}
+
 /****  Header area *****/
 
 .App-header {
-  min-height: 20vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App p {
+  font-size: 1.6rem;
 }
 
 
 /****   Maze area ****/
 
 .maze_wrapper {
+  padding: 19rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
