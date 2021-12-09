@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Row from './Row';
 
+let maze = [];
+
 class Maze extends Component {
     state = {
         size: 4,
     }
 
-    maze = [];
+    // maze = [];
    
     sizeHandler = (event) => {
         this.setState({
@@ -34,12 +36,25 @@ class Maze extends Component {
             binMaze[0][0] = 1;
             binMaze[binMaze.length -1][binMaze.length -1] = 1;
     
-            this.maze = binMaze;
+            // this.maze = binMaze;
+            maze = binMaze;
             return binMaze;
         }
     }
 
     createVisualMaze = (binaryMaze) => {
+        if (this.state.size > 1) {
+            const visualMaze = [];
+            let key = 0;
+            for (let r of binaryMaze) {
+                visualMaze.push(<Row cols={binaryMaze.length} rowBinaries={r} key={key}/>);
+                key += 1;
+            }
+            return visualMaze;
+        }
+    }
+
+    createVisualMazeX = (binaryMaze) => {
         if (this.state.size > 1) {
             const visualMaze = [];
             let key = 0;
@@ -60,8 +75,9 @@ class Maze extends Component {
         return false;
     }
 
-    exitMaze = (maze) => {
-        let mousePath = this.maze;
+    exitMaze = (origMaze) => {
+        // let mousePath = this.maze;
+        let mousePath = maze;
         // matrix initialized with zeros except start=1 and end=1
         // for (let i=0; i < this.state.size; i++) {
         //     const row = [];
@@ -120,7 +136,8 @@ class Maze extends Component {
                 <div className="input_wrapper">
                     <label htmlFor="size">Size of the maze:</label>
                     <input type="number" name="size" min="2" max="15" onChange={this.sizeHandler} />
-                    {this.exitMaze(this.maze)}
+                    {/* {this.createVisualMaze(this.exitMaze(this.maze))} */}
+                    {this.createVisualMazeX(this.exitMaze(maze))}
                     {/* <button onClick={() => this.createVisualMaze(this.exitMaze(this.maze))}>FIND A WAY TO THE CHEESE</button> */}
                 </div>
             </div>
