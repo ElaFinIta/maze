@@ -36,5 +36,12 @@ using the copy, with recursion, go forward to start searching for a PATH to solv
 
 ![screenshot](solved.png?raw=true "Screenshot of the solved maze")
 
-9. [ ] styling in CSS, images in START and DESTINATION cells
-10. [ ] possibly figure out how to show 2 separate mazes: first the unsolved and THEN the solved one. If you, dear reader, have an idea, please, contact me. REACT is driving me crazy :D
+9. [x] styling in CSS, images in START and DESTINATION cells
+10. [ ] figure out how to show 2 separate mazes: first the unsolved and THEN the solved one. PLEASE, react person, HELP ME :D
+
+### Credits:
+
+- mouse icon https://www.pngfind.com/mpng/himRwbh_download-png-rat-transparent-png/
+
+- cheese icon https://freeiconshop.com/icon/cheese-icon-outline-filled/
+  

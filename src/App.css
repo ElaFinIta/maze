@@ -16,6 +16,7 @@ body {
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
+
 }
 
 .App-link {
@@ -25,6 +26,7 @@ body {
 /****  Header area *****/
 
 .App-header {
+  padding-top: 3rem;
   height: 20vh;
   display: flex;
   flex-direction: column;
@@ -34,15 +36,20 @@ body {
   color: white;
 }
 
+h1 {
+  font-size: 3rem;
+} 
+
 .App p {
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 
 /****   Maze area ****/
 
 .maze_wrapper {
-  padding: 19rem;
+  font-size: 1rem;
+  padding: 5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -71,9 +78,41 @@ input {
   font-size: var(--special-font);
 }
  label {
-   margin: 1rem;
-   font-size: 2rem;
- }
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+p {
+  font-size: 106rem;
+}
+
+button {
+  margin: 0.3rem;
+  padding: 0.6rem;
+  border-radius: 3px;
+  border: none;
+  width: 9rem;
+}
+
+.generation_button {
+  background-color: rgb(254, 209, 217);
+  color: black;
+  border: 1px solid black;
+}
+
+.generation_button:hover {
+  background-color: rgb(255, 98, 125);
+  box-shadow: 2px 2px 2px black;
+}
+
+.solution_button {
+  background-color: rgb(57, 171, 57);
+}
+
+.solution_button:hover {
+  background-color: green;
+  box-shadow: 2px 2px 2px black;
+}
 
 /****  Footer area *****/
 
