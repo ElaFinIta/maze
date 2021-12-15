@@ -1,33 +1,37 @@
 .cell_1{
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 4vw;
+  height: 4vw;
   background-color: rgb(254, 209, 217);
   border: 1px solid pink;
   }
 
 .cell_0{
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: rgb(255, 98, 125);
+  width: 4vw;
+  height: 4vw;
   border: 1px solid rgb(38, 6, 35);
+  background-color: #282c34;
 }
 
 .cell_3{
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: green;
-  border: 1px solid rgb(3, 109, 3);
+  width: 4vw;
+  height: 4vw;
+  background-color: rgb(254, 209, 217);
+  border: 1px solid pink;
+  background-image: url('./assets/paw-solid.svg');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell_7{
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 4vw;
+  height: 4vw;
   background-color: rgb(243, 243, 243);
-  background-image: url('./rat.png');
+  background-image: url('./assets/rat.png');
   color: fuchsia;
   border: 1px solid pink;
   background-repeat: no-repeat;
@@ -37,10 +41,10 @@
 
 .cell_8{
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: green;
-  background-image: url('./cheese.svg');
+  width: 4vw;
+  height: 4vw;
+  background-color: rgb(243, 243, 243);
+  background-image: url('./assets/cheese.svg');
   border: 1px solid green;
   background-repeat: no-repeat;
   background-size: 70%;

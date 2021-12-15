@@ -1,22 +1,15 @@
 function exitMaze(maze) {
-    let mousePath = maze;
-    // matrix initialized with zeros except start=1 and end=1
-    // for (let i=0; i < this.state.size; i++) {
-    //     const row = [];
-    //     for (let j=0; j < this.state.size; j++) {
-    //         row.push(0);
-    //     }
-    //     mousePath.push(row);
-    // } 
-    
+    let mousePath = JSON.parse(JSON.stringify(maze));
+ 
+    // console.log('maze', maze);
     if (findPath(maze, 0, 0, mousePath) === true) {
         console.log('mousePath', mousePath);
         // return the matrix of the right path
         mousePath[0][0]=7;
-        mousePath[mousePath.length -1][mousePath.length -1]=8;
+        mousePath[mousePath.length -1][mousePath.length -1]= 8;
             return mousePath;
     }
-    return "NO PATH FOUND"; // if no path found 
+    return []; // if no path to cheese found in maze
 
 
     function isSafe(maze, x, y) {
@@ -56,7 +49,7 @@ function exitMaze(maze) {
             }
       
             // if going one step forward or down didn't help, mark as unsafe i.e. 0
-            mousePath[x][y] = 0;
+            mousePath[x][y] = 1;
             return false;
         }
         return false;

@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: var(--special-font);
+  font-family: var(--normal-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -26,17 +26,17 @@ body {
 /****  Header area *****/
 
 .App-header {
-  padding-top: 3rem;
-  height: 20vh;
+  padding-top: 3.5rem;
+  height: 7vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 2rem;
   color: white;
 }
 
 h1 {
+  font-family: var(--special-font);
   font-size: 3rem;
 } 
 
@@ -44,29 +44,24 @@ h1 {
   font-size: 1rem;
 }
 
-
-/****   Maze area ****/
-
-.maze_wrapper {
-  font-size: 1rem;
-  padding: 5rem;
+/**** wrapper ****/
+.wrapper {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  height: 40vh;
 }
 
-.row {
-  display: flex;
-}
-
+/****  Maze area ****/
 .input_wrapper {
   margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.input_wrapper p,
+label {
+  font-size: 1.7rem;
 }
 
 input {
@@ -77,13 +72,10 @@ input {
   border-radius: 3px;
   font-size: var(--special-font);
 }
- label {
-  margin: 1rem;
-  font-size: 1rem;
-}
 
-p {
-  font-size: 106rem;
+.label_input {
+  display: flex;
+  justify-content: space-around;
 }
 
 button {
@@ -106,7 +98,7 @@ button {
 }
 
 .solution_button {
-  background-color: rgb(57, 171, 57);
+  background-color: rgb(107, 176, 107);
 }
 
 .solution_button:hover {
@@ -114,10 +106,31 @@ button {
   box-shadow: 2px 2px 2px black;
 }
 
-/****  Footer area *****/
+.maze {
+  margin: 1rem;
+}
 
+.maze_wrapper {
+  font-size: 1rem;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.message_wrapper {
+  font-size: 3rem;
+}
+
+/****  Footer area *****/
 .footer {
-  margin-top: 12rem;
-  font-size: 0.5rem;
+  margin-top: 6rem;
+  padding: 0.2rem;
+  font-size: 1rem;
   color: white;
 }
