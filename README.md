@@ -37,9 +37,6 @@ using the copy, with recursion, go forward to start searching for a PATH to solv
 7. [x] create a visual maze for the solved binary mazed
 8. [x] fix bug: app breaks when deleting size in input field
 9. [x] fix maze growing onto header
-
-![screenshot](solved.png?raw=true "Screenshot of the solved maze")
-
 10. [x] styling in CSS, images in START and DESTINATION cells
 11. [x] <del>figure out how to show 2 separate mazes: first the unsolved and THEN the solved one. PLEASE, react person, HELP ME :D</del> I did figure out but I adopted a better solution: to show the found path in the same maze, not showing two separate mazes. SLEEPING helped me XD Lesson learnt (?): STOP it and get some sleep. It's useless to try too hard when tired.
 
@@ -47,7 +44,7 @@ using the copy, with recursion, go forward to start searching for a PATH to solv
 
 ![screenshot3](unsolved.png?raw=true "Screenshot of the generated unsolved application")
 
-![screenshot4](unsolved.png?raw=true "Screenshot of the solved maze")
+![screenshot4](solved.png?raw=true "Screenshot of the solved maze")
 
 ### Credits:
 
