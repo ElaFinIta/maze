@@ -14,17 +14,6 @@ class Maze extends Component {
 
     message = (<div className="message_wrapper">NO PATH FOUND</div>);
 
-
-    closeHandler = () => {
-        window.location.reload();
-    }
-
-    closeInputPopUp = () => {
-        this.setState({
-            inputPopUp: false
-        });
-    }
-
     sizeHandler = (event) => {
         this.setState({
             size: event.target.value,
